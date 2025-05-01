@@ -23,12 +23,14 @@ You can look these up on L<https://metacpan.org>
 use v5.36;
 use Mojolicious::Lite -signatures;
 use Imager;
+use Imager::Font::Wrap;
 use Path::Class;
 use Regexp::Common 'profanity';
 use Data::Dumper;
 
 use lib 'lib';
 use MS::InfoDisplay;
+use Data::Printer output => 'stderr';
 
 =head2 Web endpoint /message
 
@@ -41,33 +43,52 @@ L<http://whereever/message>.
 =cut
 
 my $screensize = { x => 128, y => 128 };
-my $fontsize = 12;
+# my $screensize = { x => 96, y => 32 };
+my $fontsize = 8; # 12
 
 get '/message' => sub ($c) {
     # Look for all plugins:
     my $info_display = MS::InfoDisplay->new();
     my @plugins = $info_display->plugins();
 
+    die "No plugins" if !@plugins;
+
     # Collect all possible messages
     # One key per message, track which plugin and its arguments in the values
     my %display_messages = ();
+    my $max_random = 0;
+    my @plugin_info;
+
     foreach my $plugin (@plugins) {
-        foreach my $message_data ($plugin->get_message_counts()) {
-            $display_messages{$message_data->{key}} = { plugin => $plugin, %$message_data };
-        }
+        $c->app->log->debug("Found plugin: $plugin");
+        my $messages = $plugin->messages_count;
+
+        push @plugin_info, {plugin => $plugin, count => $messages};
+
+        $max_random += $messages;
     }
 
-    # Keys as a array:
-    my @message_keys = keys %display_messages;
+    die "No messages?" if $max_random == 0;
 
-    # Pick a message (random number between 0 and number of messages):
-    my $msg_index = int(rand(scalar @message_keys));
+    say STDERR "max_random: $max_random";
 
-    # Retrieve that message's plugin data:
-    my $message_data = $display_messages{$message_keys[$msg_index]};
+    my $the_random = int rand $max_random;
 
-    # Run the plugin:
-    my $message = $message_data->{plugin}->run($message_data);
+    say STDERR "the_random: $the_random";
+
+    my $plugin_info;
+    for my $loop_plugin_info (@plugin_info) {
+        # This is ugly as all fuck.
+        $plugin_info = $loop_plugin_info;
+        if ($the_random < $plugin_info->{count}) {
+            last;
+        }
+        $the_random -= $plugin_info->{count};
+    }
+
+    p $plugin_info;
+
+    my $message = $plugin_info->{plugin}->run($the_random);
 
     # If its not an Image, assume its text and create an Image:
     if(ref $message ne 'Imager') {
@@ -82,23 +103,32 @@ get '/message' => sub ($c) {
     $c->render(data => $file_data, format => 'png');    
 };
 
-app->start;
+app->start('daemon', '-l', 'http://*:5001');
 
 sub text_to_image ($message) {
+    my $default_font = 'Ac437_ApricotPortable.ttf';
+    my $fontfile = 'fonts/ttf - Ac (aspect-corrected)/' . $default_font;
 
     my $font = Imager::Font->new(
-        face => 'Times New Roman', #placeholder
+        file => $fontfile,
+        # face => 'Times New Roman', #placeholder
         color => 'white',
         size => $fontsize,
     );
+    if (!$font) {
+        die "Couldn't load font";
+    }
 
     my $savepos;
-    my $img = Imager=>new(xsize => $screensize->{x},
+    my $img = Imager->new(xsize => $screensize->{x},
                           ysize => $screensize->{y});
-    Imager::Font::Wrap->wrap_text( image   => $img,
-                                   font    => $font,
-                                   string  => $message,
-                                   savepos => \$savepos ) or die $img->errstr;
+    say STDERR "img: $img";
+    Imager::Font::Wrap->wrap_text(
+        image   => $img,
+        font    => $font,
+        string  => $message,
+        savepos => \$savepos,
+        justify => 'fill') or die $img->errstr;
 
     if($savepos > 0) {
         warn "$message was too long\n";
