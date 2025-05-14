@@ -3,8 +3,7 @@ package MS::InfoDisplay::Plugin::Fortune;
 use strictures 2;
 use 5.36.0;
 
-my @messages = 
-    (
+my @messages = (
         "Leave the space a little tidier than you found it",
         "Use a mug and wash it up, or buy a paper cup",
         "Measure twice, cut once",
@@ -16,6 +15,10 @@ my @messages =
         "Aim to leave the space cleaner than when you started",
         "If it isn't for everybody's use, take it home or put it in your member's box",
         "Your members box should be labled on both of the long sides",
+        "Make all the things!",
+        "Why not more penguins?",
+        "Your member box should have your name on it, easily legable, on both long sides",
+        "You can buy your own member box, 32L storage box from The Range"
     );
 
 sub messages_count {

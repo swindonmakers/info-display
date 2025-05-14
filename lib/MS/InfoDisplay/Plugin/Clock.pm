@@ -8,7 +8,7 @@ sub messages_count {
 }
 
 sub run {
-    return DateTime->new->hms;
+    return DateTime->now()->hms;
 #    return scalar localtime;
 }
 

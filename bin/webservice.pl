@@ -42,7 +42,7 @@ L<http://whereever/message>.
 
 =cut
 
-my $screensize = { x => 128, y => 128 };
+my $screensize = { x => 3*64, y => 3*32 };
 # my $screensize = { x => 96, y => 32 };
 my $fontsize = 8; # 12
 
@@ -99,8 +99,8 @@ get '/message' => sub ($c) {
 
     # Write out image to display:
     my $file_data;
-    $message->write(data => \$file_data, type => 'png');
-    $c->render(data => $file_data, format => 'png');    
+    $message->write(data => \$file_data, type => 'bmp');
+    $c->render(data => $file_data, format => 'bmp');    
 };
 
 app->start('daemon', '-l', 'http://*:5001');
@@ -121,16 +121,20 @@ sub text_to_image ($message) {
 
     my $savepos;
     my $img = Imager->new(xsize => $screensize->{x},
-                          ysize => $screensize->{y});
+                          ysize => $screensize->{y},
+                          type => 'paletted');
+    $img->addcolors(colors => [Imager::Color->new(0, 0, 0),
+                               Imager::Color->new(255, 255, 255)]);
     say STDERR "img: $img";
     Imager::Font::Wrap->wrap_text(
         image   => $img,
         font    => $font,
         string  => $message,
         savepos => \$savepos,
-        justify => 'fill') or die $img->errstr;
+        # justify => 'fill',
+    ) or die $img->errstr;
 
-    if($savepos > 0) {
+    if($savepos < length($message)) {
         warn "$message was too long\n";
     }
 
