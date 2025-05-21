@@ -18,7 +18,9 @@ my @messages = (
         "Make all the things!",
         "Why not more penguins?",
         "Your member box should have your name on it, easily legable, on both long sides",
-        "You can buy your own member box, 32L storage box from The Range"
+        "You can buy your own member box, 32L storage box from The Range",
+        "Remember to turn off the lights as you leave",
+        "Using a little of a consumable?  Go for it.  Using a lot?  Buy a job lot and give us the spare.".
     );
 
 sub messages_count {
