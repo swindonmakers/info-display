@@ -5,4 +5,7 @@ requires 'Regexp::Common';
 requires 'Module::Pluggable';
 requires 'Moo';
 requires 'Imager::Font::Wrap';
+requires 'Imager::Graph::Column';
+requires 'Chart::Math::Axis';
 requires 'DateTime';
+requires 'Config::General';
