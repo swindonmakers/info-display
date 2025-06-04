@@ -20,7 +20,7 @@ You can look these up on L<https://metacpan.org>
 
 =cut
 
-use v5.36;
+use v5.28;
 use Mojolicious::Lite -signatures;
 use Imager;
 use Imager::Font::Wrap;
@@ -109,6 +109,9 @@ sub text_to_image ($message) {
     my $default_font = 'Ac437_ApricotPortable.ttf';
     my $fontfile = 'fonts/ttf - Ac (aspect-corrected)/' . $default_font;
 
+    if(!-e $fontfile) {
+        say "No such font: $fontfile";
+    }
     my $font = Imager::Font->new(
         file => $fontfile,
         # face => 'Times New Roman', #placeholder

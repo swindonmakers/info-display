@@ -18,6 +18,18 @@ DISTRIBUTIONS
       perl 5.006001
       strict 0
       warnings 0
+  B-Hooks-OP-Check-0.22
+    pathname: E/ET/ETHER/B-Hooks-OP-Check-0.22.tar.gz
+    provides:
+      B::Hooks::OP::Check 0.22
+    requirements:
+      DynaLoader 0
+      ExtUtils::Depends 0.302
+      ExtUtils::MakeMaker 0
+      parent 0
+      perl 5.008001
+      strict 0
+      warnings 0
   Class-Data-Inheritable-0.10
     pathname: R/RS/RSHERER/Class-Data-Inheritable-0.10.tar.gz
     provides:
@@ -62,6 +74,47 @@ DISTRIBUTIONS
       Clone 0.47
     requirements:
       ExtUtils::MakeMaker 0
+  Data-Printer-1.002001
+    pathname: G/GA/GARU/Data-Printer-1.002001.tar.gz
+    provides:
+      DDP 1.002001
+      Data::Printer 1.002001
+      Data::Printer::Common undef
+      Data::Printer::Config undef
+      Data::Printer::Filter undef
+      Data::Printer::Filter::ARRAY undef
+      Data::Printer::Filter::CODE undef
+      Data::Printer::Filter::ContentType undef
+      Data::Printer::Filter::DB undef
+      Data::Printer::Filter::DateTime undef
+      Data::Printer::Filter::Digest undef
+      Data::Printer::Filter::FORMAT undef
+      Data::Printer::Filter::GLOB undef
+      Data::Printer::Filter::GenericClass undef
+      Data::Printer::Filter::HASH undef
+      Data::Printer::Filter::OBJECT undef
+      Data::Printer::Filter::REF undef
+      Data::Printer::Filter::Regexp undef
+      Data::Printer::Filter::SCALAR undef
+      Data::Printer::Filter::VSTRING undef
+      Data::Printer::Filter::Web undef
+      Data::Printer::Object undef
+      Data::Printer::Profile undef
+      Data::Printer::Profile::Dumper undef
+      Data::Printer::Profile::JSON undef
+      Data::Printer::Theme undef
+      Data::Printer::Theme::Classic undef
+      Data::Printer::Theme::Material undef
+      Data::Printer::Theme::Monokai undef
+      Data::Printer::Theme::Solarized undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      Fcntl 0
+      File::Spec 0
+      File::Temp 0
+      Scalar::Util 0
+      Test::More 0
+      version 0.77
   DateTime-1.66
     pathname: D/DR/DROLSKY/DateTime-1.66.tar.gz
     provides:
@@ -530,6 +583,62 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  ExtUtils-Depends-0.8002
+    pathname: E/ET/ETJ/ExtUtils-Depends-0.8002.tar.gz
+    provides:
+      ExtUtils::Depends 0.8002
+    requirements:
+      Data::Dumper 0
+      ExtUtils::MakeMaker 7.44
+      File::Spec 0
+      IO::File 0
+      perl 5.006
+  ExtUtils-MakeMaker-7.74
+    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-7.74.tar.gz
+    provides:
+      ExtUtils::Command 7.74
+      ExtUtils::Command::MM 7.74
+      ExtUtils::Liblist 7.74
+      ExtUtils::Liblist::Kid 7.74
+      ExtUtils::MM 7.74
+      ExtUtils::MM_AIX 7.74
+      ExtUtils::MM_Any 7.74
+      ExtUtils::MM_BeOS 7.74
+      ExtUtils::MM_Cygwin 7.74
+      ExtUtils::MM_DOS 7.74
+      ExtUtils::MM_Darwin 7.74
+      ExtUtils::MM_MacOS 7.74
+      ExtUtils::MM_NW5 7.74
+      ExtUtils::MM_OS2 7.74
+      ExtUtils::MM_OS390 7.74
+      ExtUtils::MM_QNX 7.74
+      ExtUtils::MM_UWIN 7.74
+      ExtUtils::MM_Unix 7.74
+      ExtUtils::MM_VMS 7.74
+      ExtUtils::MM_VOS 7.74
+      ExtUtils::MM_Win32 7.74
+      ExtUtils::MM_Win95 7.74
+      ExtUtils::MY 7.74
+      ExtUtils::MakeMaker 7.74
+      ExtUtils::MakeMaker::Config 7.74
+      ExtUtils::MakeMaker::Locale 7.74
+      ExtUtils::MakeMaker::_version 7.74
+      ExtUtils::MakeMaker::charstar 7.74
+      ExtUtils::MakeMaker::version 7.74
+      ExtUtils::MakeMaker::version::regex 7.74
+      ExtUtils::MakeMaker::version::vpp 7.74
+      ExtUtils::Mkbootstrap 7.74
+      ExtUtils::Mksymlists 7.74
+      ExtUtils::testlib 7.74
+      MM 7.74
+      MY 7.74
+    requirements:
+      Data::Dumper 0
+      Encode 0
+      File::Basename 0
+      File::Spec 0.8
+      Pod::Man 0
+      perl 5.006
   File-ShareDir-1.118
     pathname: R/RE/REHSACK/File-ShareDir-1.118.tar.gz
     provides:
@@ -599,6 +708,15 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Scalar::Util 1.00
       Test::More 0.99
+      XSLoader 0
+  Imager-Font-FT2-1.003
+    pathname: T/TO/TONYC/Imager-Font-FT2-1.003.tar.gz
+    provides:
+      Imager::Font::FT2 1.003
+    requirements:
+      ExtUtils::MakeMaker 0
+      Imager 0.95
+      Scalar::Util 1
       XSLoader 0
   MRO-Compat-0.15
     pathname: H/HA/HAARG/MRO-Compat-0.15.tar.gz
@@ -946,7 +1064,7 @@ DISTRIBUTIONS
     requirements:
       Config 0
       ExtUtils::MakeMaker 0
-      perl 5.010
+      perl 5.01
       strict 0
       vars 0
       warnings 0
@@ -1093,6 +1211,53 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.008
+  bareword-filehandles-0.007
+    pathname: I/IL/ILMARI/bareword-filehandles-0.007.tar.gz
+    provides:
+      bareword::filehandles 0.007
+    requirements:
+      B::Hooks::OP::Check 0
+      ExtUtils::Depends 0
+      ExtUtils::MakeMaker 0
+      Test::More 0.88
+      XSLoader 0
+      if 0
+      perl 5.008001
+      strict 0
+      warnings 0
+  indirect-0.39
+    pathname: V/VP/VPIT/indirect-0.39.tar.gz
+    provides:
+      indirect 0.39
+    requirements:
+      Carp 0
+      Config 0
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      IO::Handle 0
+      IO::Select 0
+      IPC::Open3 0
+      POSIX 0
+      Socket 0
+      Test::More 0
+      XSLoader 0
+      lib 0
+      perl 5.008001
+  multidimensional-0.014
+    pathname: I/IL/ILMARI/multidimensional-0.014.tar.gz
+    provides:
+      multidimensional 0.014
+    requirements:
+      B::Hooks::OP::Check 0.19
+      CPAN::Meta 2.112580
+      ExtUtils::Depends 0
+      ExtUtils::MakeMaker 0
+      Test::More 0.88
+      XSLoader 0
+      if 0
+      perl 5.008001
+      strict 0
+      warnings 0
   namespace-autoclean-0.31
     pathname: E/ET/ETHER/namespace-autoclean-0.31.tar.gz
     provides:
@@ -1115,3 +1280,13 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Package::Stash 0.23
       perl 5.008001
+  strictures-2.000006
+    pathname: H/HA/HAARG/strictures-2.000006.tar.gz
+    provides:
+      strictures 2.000006
+      strictures::extra undef
+    requirements:
+      bareword::filehandles 0
+      indirect 0
+      multidimensional 0
+      perl 5.006

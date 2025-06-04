@@ -1,7 +1,7 @@
 package MS::InfoDisplay::Plugin::MNutSize;
 
 use strictures 2;
-use 5.36.0;
+use v5.28;
 
 sub messages_count {
     return 1;

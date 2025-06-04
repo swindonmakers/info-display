@@ -1,7 +1,7 @@
 package MS::InfoDisplay::Plugin::Fortune;
 
 use strictures 2;
-use 5.36.0;
+use v5.28;
 
 my @messages = (
         "Leave the space a little tidier than you found it",
