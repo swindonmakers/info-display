@@ -10,3 +10,7 @@ requires 'Imager::Font::Wrap';
 requires 'DateTime';
 requires 'Data::Printer';
 requires 'strictures';
+requires 'Imager::Graph::Column';
+requires 'Chart::Math::Axis';
+requires 'DateTime';
+requires 'Config::General';

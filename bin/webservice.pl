@@ -27,6 +27,8 @@ use Imager::Font::Wrap;
 use Path::Class;
 use Regexp::Common 'profanity';
 use Data::Dumper;
+use DateTime;
+use DateTime::Format::Strptime;
 
 use lib 'lib';
 use MS::InfoDisplay;
@@ -43,8 +45,11 @@ L<http://whereever/message>.
 =cut
 
 my $screensize = { x => 3*64, y => 3*32 };
-# my $screensize = { x => 96, y => 32 };
-my $fontsize = 8; # 12
+my $fontsize = 16;
+my $image_format = 'png';
+my $datetime_formatter = DateTime::Format::Strptime->new(
+    pattern => '%A %e %B %H:%M'
+);
 
 get '/message' => sub ($c) {
     # Look for all plugins:
@@ -53,70 +58,93 @@ get '/message' => sub ($c) {
 
     die "No plugins" if !@plugins;
 
-    # Collect all possible messages
-    # One key per message, track which plugin and its arguments in the values
-    my %display_messages = ();
-    my $max_random = 0;
-    my @plugin_info;
-
-    foreach my $plugin (@plugins) {
-        $c->app->log->debug("Found plugin: $plugin");
-        my $messages = $plugin->messages_count;
-
-        push @plugin_info, {plugin => $plugin, count => $messages};
-
-        $max_random += $messages;
-    }
-
-    die "No messages?" if $max_random == 0;
-
-    say STDERR "max_random: $max_random";
-
-    my $the_random = int rand $max_random;
-
-    say STDERR "the_random: $the_random";
-
-    my $plugin_info;
-    for my $loop_plugin_info (@plugin_info) {
-        # This is ugly as all fuck.
-        $plugin_info = $loop_plugin_info;
-        if ($the_random < $plugin_info->{count}) {
-            last;
-        }
-        $the_random -= $plugin_info->{count};
-    }
-
-    p $plugin_info;
-
-    my $message = $plugin_info->{plugin}->run($the_random);
-
-    # If its not an Image, assume its text and create an Image:
-    if(ref $message ne 'Imager') {
-        $message = text_to_image($message);
+    my $message;
+    if($c->param('plugin')) {
+        my $p = $c->param('plugin');
+        $message = $p->run(); #params?
     } else {
-        # Check image size / scale ?
-    }
 
+        # Collect all possible messages
+        # One key per message, track which plugin and its arguments in the values
+        my %display_messages = ();
+        my $max_random = 0;
+        my @plugin_info;
+
+        foreach my $plugin (@plugins) {
+            $c->app->log->debug("Found plugin: $plugin");
+            my $messages = $plugin->messages_count;
+
+            push @plugin_info, {plugin => $plugin, count => $messages};
+
+            $max_random += $messages;
+        }
+
+        die "No messages?" if $max_random == 0;
+
+        say STDERR "max_random: $max_random";
+
+        my $the_random = int rand $max_random;
+
+        say STDERR "the_random: $the_random";
+
+        my $plugin_info;
+        for my $loop_plugin_info (@plugin_info) {
+            # This is ugly as all fuck.
+            $plugin_info = $loop_plugin_info;
+            if ($the_random < $plugin_info->{count}) {
+                last;
+            }
+            $the_random -= $plugin_info->{count};
+        }
+
+        p $plugin_info;
+
+        $message = $plugin_info->{plugin}->run($the_random);
+
+        # If its not an Image, assume its text and create an Image:
+        if(ref $message ne 'Imager') {
+            $message = text_to_image($message);
+        } else {
+            # Check image size / scale ?
+        }
+
+    }
+    
     # Write out image to display:
     my $file_data;
-    $message->write(data => \$file_data, type => 'bmp');
-    $c->render(data => $file_data, format => 'bmp');    
+    if(!$message) {
+        $message = Imager->new(xsize => $screensize->{x},
+                               ysize => $screensize->{y},
+        );
+    }
+    $message = $message->to_paletted(make_colors => 'addi');
+    $message->write(data => \$file_data, type => $image_format);
+    $c->render(data => $file_data, format => $image_format);    
 };
 
 app->start('daemon', '-l', 'http://*:5001');
 
 sub text_to_image ($message) {
-    my $default_font = 'Ac437_ApricotPortable.ttf';
-    my $fontfile = 'fonts/ttf - Ac (aspect-corrected)/' . $default_font;
+#    my $fontfile = '/usr/src/extern/hackspace/TitilliumWeb-Light.ttf';
+    my $fontfile = '/usr/src/extern/hackspace/Lekton-Regular.ttf';
 
     if(!-e $fontfile) {
         say "No such font: $fontfile";
     }
-    my $font = Imager::Font->new(
+
+    my $not_white = Imager::Color->new('#444444');
+    my $font_clock = Imager::Font->new(
         file => $fontfile,
-        # face => 'Times New Roman', #placeholder
         color => 'white',
         size => $fontsize,
+        aa    => 1
+    );
+
+    my $font = Imager::Font->new(
+        file => $fontfile,
+        color => $not_white,
+        size => $fontsize,
+        aa   => 1,
     );
     if (!$font) {
         die "Couldn't load font";
@@ -125,13 +153,24 @@ sub text_to_image ($message) {
     my $savepos;
     my $img = Imager->new(xsize => $screensize->{x},
                           ysize => $screensize->{y},
-                          type => 'paletted');
-    $img->addcolors(colors => [Imager::Color->new(0, 0, 0),
-                               Imager::Color->new(255, 255, 255)]);
+    #                      type => 'paletted'
+    );
+
     say STDERR "img: $img";
+    my $now = DateTime->now(time_zone => 'Europe/London');
+    $img->string(x => 0,
+                 y => 0,
+                 align => 0,
+                 font => $font_clock,
+                 string => $datetime_formatter->format_datetime($now),
+#                 string => sprintf('%s %02d:%02d', DateTime->now()->day_name, DateTime->now()->hour, DateTime->now()->minute),
+    );
     Imager::Font::Wrap->wrap_text(
         image   => $img,
         font    => $font,
+        x       => 15,
+        y       => 18,
+        
         string  => $message,
         savepos => \$savepos,
         # justify => 'fill',

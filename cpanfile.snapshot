@@ -30,6 +30,18 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Chart-Math-Axis-1.06
+    pathname: A/AD/ADAMK/Chart-Math-Axis-1.06.tar.gz
+    provides:
+      Chart::Math::Axis 1.06
+    requirements:
+      ExtUtils::MakeMaker 6.42
+      Math::BigFloat 1.44
+      Math::BigInt 1.70
+      Params::Util 0.15
+      Storable 2.12
+      Test::More 0.42
+      perl 5.005
   Class-Data-Inheritable-0.10
     pathname: R/RS/RSHERER/Class-Data-Inheritable-0.10.tar.gz
     provides:
@@ -74,6 +86,18 @@ DISTRIBUTIONS
       Clone 0.47
     requirements:
       ExtUtils::MakeMaker 0
+  Config-General-2.67
+    pathname: T/TL/TLINDEN/Config-General-2.67.tar.gz
+    provides:
+      Config::General 2.67
+      Config::General::Extended 2.07
+      Config::General::Interpolated 2.16
+    requirements:
+      ExtUtils::MakeMaker 0
+      File::Glob 0
+      File::Spec::Functions 0
+      FileHandle 0
+      IO::File 0
   Data-Printer-1.002001
     pathname: G/GA/GARU/Data-Printer-1.002001.tar.gz
     provides:
@@ -718,6 +742,24 @@ DISTRIBUTIONS
       Imager 0.95
       Scalar::Util 1
       XSLoader 0
+  Imager-Graph-0.12
+    pathname: T/TO/TONYC/Imager-Graph-0.12.tar.gz
+    provides:
+      Imager::Graph 0.12
+      Imager::Graph::Area undef
+      Imager::Graph::Bar undef
+      Imager::Graph::Column undef
+      Imager::Graph::Horizontal 0.11
+      Imager::Graph::Line undef
+      Imager::Graph::Pie undef
+      Imager::Graph::StackedColumn undef
+      Imager::Graph::Util undef
+      Imager::Graph::Vertical 0.11
+    requirements:
+      ExtUtils::MakeMaker 0
+      Imager 0.75
+      Test::More 0.47
+      perl 5.006
   MRO-Compat-0.15
     pathname: H/HA/HAARG/MRO-Compat-0.15.tar.gz
     provides:
@@ -981,6 +1023,22 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Params-Util-1.102
+    pathname: R/RE/REHSACK/Params-Util-1.102.tar.gz
+    provides:
+      Params::Util 1.102
+      Params::Util::PP 1.102
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Copy 0
+      File::Path 0
+      File::Spec 0
+      IPC::Cmd 0
+      Scalar::Util 1.18
+      XSLoader 0.22
+      parent 0
   Params-ValidationCompiler-0.31
     pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz
     provides:
