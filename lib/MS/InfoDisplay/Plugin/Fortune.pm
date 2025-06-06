@@ -17,8 +17,6 @@ my @messages = (
         "Your members box should be labled on both of the long sides",
         "Make all the things!",
         "Why not more penguins?",
-        $img->read(file => $penguin1)   
-        or die()"Cannot read $filename: ", $img->errstr),
         "Your member box should have your name on it, easily legable, on both long sides",
         "You can buy your own member box, 32L storage box from The Range",
         "Remember to turn off the lights as you leave",
