@@ -65,7 +65,7 @@ get '/message' => sub ($c) {
     my $message;
     if($c->param('plugin')) {
         my $p = $c->param('plugin');
-        $message = $p->run(); #params?
+        $message = $p->run($c->param('num') || 0); #params?
     } else {
 
         # Collect all possible messages
