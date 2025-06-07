@@ -100,15 +100,31 @@ get '/message' => sub ($c) {
         p $plugin_info;
 
         $message = $plugin_info->{plugin}->run($the_random);
-
-        # If its not an Image, assume its text and create an Image:
-        if(ref $message ne 'Imager') {
-            $message = text_to_image($message);
-        } else {
-            # Check image size / scale ?
-        }
-
     }
+
+    # If its not an Image, assume its text and create an Image:
+    if(ref $message ne 'Imager') {
+        $message = text_to_image($message);
+    } else {
+        # Check image size / scale ?
+    }
+
+    # Find the "absolute brightness".
+    my $brightness = 0;
+    {
+        my $b_and_w =  $message->convert(preset => 'grey');
+        for my $y (0..$b_and_w->getheight-1) {
+            my (@values) = $b_and_w->getsamples(y=>$y, channels=>[0]);
+            $brightness += $_ for @values;
+        }
+    }
+    say "Image brightness: $brightness";
+
+    my $desired_brightness = 120000;
+    my $contrast = $desired_brightness/$brightness;
+
+    say "Contrast: $contrast";
+    $message->filter(type => 'contrast', intensity => $contrast) or die "Cannot contrast: ".$message->errstr;
     
     # Write out image to display:
     my $file_data;
@@ -132,7 +148,7 @@ sub text_to_image ($message) {
         say "No such font: $fontfile";
     }
 
-    my $not_white = Imager::Color->new('#444444');
+    my $not_white = Imager::Color->new('#555555');
     my $font_clock = Imager::Font->new(
         file => $fontfile,
         color => 'white',
