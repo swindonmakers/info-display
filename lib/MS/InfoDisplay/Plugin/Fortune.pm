@@ -2,6 +2,7 @@ package MS::InfoDisplay::Plugin::Fortune;
 
 use strictures 2;
 use v5.28;
+use utf8;
 
 my @messages = (
         "Leave the space a little tidier than you found it",

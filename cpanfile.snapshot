@@ -42,6 +42,15 @@ DISTRIBUTIONS
       Storable 2.12
       Test::More 0.42
       perl 5.005
+  Class-Accessor-0.51
+    pathname: K/KA/KASEI/Class-Accessor-0.51.tar.gz
+    provides:
+      Class::Accessor 0.51
+      Class::Accessor::Fast 0.51
+      Class::Accessor::Faster 0.51
+    requirements:
+      ExtUtils::MakeMaker 0
+      base 1.01
   Class-Data-Inheritable-0.10
     pathname: R/RS/RSHERER/Class-Data-Inheritable-0.10.tar.gz
     provides:
@@ -178,6 +187,190 @@ DISTRIBUTIONS
       strict 0
       warnings 0
       warnings::register 0
+  DateTime-Astro-1.04
+    pathname: D/DM/DMAKI/DateTime-Astro-1.04.tar.gz
+    provides:
+      DateTime::Astro 1.04
+      DateTime::Event::SolarTerm undef
+    requirements:
+      DateTime 0
+      DateTime::Set 0
+      Exporter 5.57
+      ExtUtils::CBuilder 0
+      Module::Build 0.4005
+      Module::Build::XSUtil 0.19
+  DateTime-Calendar-Chinese-1.00
+    pathname: D/DM/DMAKI/DateTime-Calendar-Chinese-1.00.tar.gz
+    provides:
+      DateTime::Calendar::Chinese 1.00
+    requirements:
+      DateTime::Event::Chinese 1.00
+      ExtUtils::MakeMaker 6.42
+      perl 5.008
+  DateTime-Calendar-Discordian-1.0
+    pathname: J/JA/JALDHAR/DateTime-Calendar-Discordian-1.0.tar.gz
+    provides:
+      DateTime::Calendar::Discordian 1.0
+    requirements:
+      DateTime 0
+      DateTime::Locale 0
+      Params::Validate 0
+      perl 5.01
+  DateTime-Calendar-Japanese-0.06001
+    pathname: D/DM/DMAKI/DateTime-Calendar-Japanese-0.06001.tar.gz
+    provides:
+      DateTime::Calendar::Japanese 0.06001
+    requirements:
+      DateTime 0
+      DateTime::Calendar::Chinese 0
+      DateTime::Calendar::Japanese::Era 0
+      DateTime::Event::Sunrise 0
+      DateTime::Util::Calc 0
+      ExtUtils::MakeMaker 0
+      Params::Validate 0
+  DateTime-Calendar-Japanese-Era-0.08003
+    pathname: S/SY/SYOHEX/DateTime-Calendar-Japanese-Era-0.08003.tar.gz
+    provides:
+      DateTime::Calendar::Japanese::Era 0.08003
+    requirements:
+      Class::Accessor::Fast 0
+      Class::Data::Inheritable 0
+      DateTime 0
+      DateTime::Infinite 0
+      Encode 0
+      Exporter 0
+      ExtUtils::MakeMaker 6.36
+      File::ShareDir 1.00
+      Module::Build::Tiny 0.035
+      Params::Validate 0
+      YAML 0.71
+      perl 5.008004
+  DateTime-Calendar-TauStation-1.182290
+    pathname: C/CF/CFRANKS/DateTime-Calendar-TauStation-1.182290.tar.gz
+    provides:
+      DateTime::Calendar::TauStation 1.182290
+      DateTime::Duration::TauStation 1.182290
+      DateTime::Format::TauStation 1.182290
+    requirements:
+      Carp 0
+      DateTime::Duration 0
+      DateTime::Format::Builder 0
+      ExtUtils::MakeMaker 0
+      POSIX 0
+      parent 0
+      perl 5.010
+  DateTime-Event-Chinese-1.00
+    pathname: D/DM/DMAKI/DateTime-Event-Chinese-1.00.tar.gz
+    provides:
+      DateTime::Event::Chinese 1.00
+    requirements:
+      DateTime::Astro 0
+      ExtUtils::MakeMaker 6.42
+      Math::Round 0
+  DateTime-Event-Sunrise-0.0506
+    pathname: J/JF/JFORGET/DateTime-Event-Sunrise-0.0506.tar.gz
+    provides:
+      DateTime::Event::Sunrise 0.0506
+    requirements:
+      Carp 0
+      DateTime 0.16
+      DateTime::Duration 0
+      DateTime::Set 0.16
+      DateTime::Span 0
+      DateTime::SpanSet 0
+      ExtUtils::MakeMaker 6.57_02
+      Math::Trig 0
+      POSIX 0
+      Params::Validate 0
+      Set::Infinite 0
+      Test::Exception 0
+      Test::More 0
+      perl 5.008005
+  DateTime-Format-Baby-1.0200
+    pathname: J/JF/JFORGET/DateTime-Format-Baby-1.0200.tar.gz
+    provides:
+      DateTime::Format::Baby 1.0200
+    requirements:
+      Carp 0
+      DateTime 0.16
+      ExtUtils::MakeMaker 0
+      Params::Validate 0
+      perl 5.006001
+  DateTime-Format-Builder-0.83
+    pathname: D/DR/DROLSKY/DateTime-Format-Builder-0.83.tar.gz
+    provides:
+      DateTime::Format::Builder 0.83
+      DateTime::Format::Builder::Parser 0.83
+      DateTime::Format::Builder::Parser::Dispatch 0.83
+      DateTime::Format::Builder::Parser::Quick 0.83
+      DateTime::Format::Builder::Parser::Regex 0.83
+      DateTime::Format::Builder::Parser::Strptime 0.83
+      DateTime::Format::Builder::Parser::generic 0.83
+    requirements:
+      Carp 0
+      DateTime 1.00
+      DateTime::Format::Strptime 1.04
+      ExtUtils::MakeMaker 0
+      Params::Validate 0.72
+      Scalar::Util 0
+      parent 0
+      strict 0
+      warnings 0
+  DateTime-Format-GeekTime-1.001
+    pathname: D/DA/DAKKAR/DateTime-Format-GeekTime-1.001.tar.gz
+    provides:
+      DateTime::Format::GeekTime 1.001
+    requirements:
+      Carp 0
+      DateTime 0
+      ExtUtils::MakeMaker 6.36
+      perl 5.005
+  DateTime-Format-Human-0.01
+    pathname: J/JH/JHOBLITT/DateTime-Format-Human-0.01.tar.gz
+    provides:
+      DateTime::Format::Human 0.01
+    requirements:
+      DateTime 0.22
+      Params::Validate 0.74
+  DateTime-Format-Japanese-0.04000
+    pathname: D/DM/DMAKI/DateTime-Format-Japanese-0.04000.tar.gz
+    provides:
+      DateTime::Format::Japanese 0.04000
+      DateTime::Format::Japanese::Common undef
+      DateTime::Format::Japanese::Traditional undef
+    requirements:
+      DateTime 0
+      DateTime::Calendar::Japanese 0.05
+      DateTime::Calendar::Japanese::Era 0.08001
+      DateTime::Format::Builder 0
+      Encode 0
+      ExtUtils::MakeMaker 7.70
+      Params::Validate 0
+  DateTime-Format-Strptime-1.79
+    pathname: D/DR/DROLSKY/DateTime-Format-Strptime-1.79.tar.gz
+    provides:
+      DateTime::Format::Strptime 1.79
+      DateTime::Format::Strptime::Types 1.79
+    requirements:
+      Carp 0
+      DateTime 1.00
+      DateTime::Locale 1.30
+      DateTime::Locale::Base 0
+      DateTime::Locale::FromData 0
+      DateTime::TimeZone 2.09
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Params::ValidationCompiler 0
+      Specio 0.33
+      Specio::Declare 0
+      Specio::Exporter 0
+      Specio::Library::Builtins 0
+      Specio::Library::String 0
+      Try::Tiny 0
+      constant 0
+      parent 0
+      strict 0
+      warnings 0
   DateTime-Locale-1.45
     pathname: D/DR/DROLSKY/DateTime-Locale-1.45.tar.gz
     provides:
@@ -204,6 +397,18 @@ DISTRIBUTIONS
       perl 5.008004
       strict 0
       warnings 0
+  DateTime-Set-0.3900
+    pathname: F/FG/FGLOCK/DateTime-Set-0.3900.tar.gz
+    provides:
+      DateTime::Set 0.3900
+      DateTime::Span undef
+      DateTime::SpanSet undef
+      Set::Infinite::_recurrence undef
+    requirements:
+      DateTime 0.12
+      Params::Validate 0
+      Set::Infinite 0.59
+      Test::More 0
   DateTime-TimeZone-2.65
     pathname: D/DR/DROLSKY/DateTime-TimeZone-2.65.tar.gz
     provides:
@@ -553,6 +758,32 @@ DISTRIBUTIONS
       perl 5.008004
       strict 0
       warnings 0
+  DateTime-Util-Calc-0.13003
+    pathname: D/DM/DMAKI/DateTime-Util-Calc-0.13003.tar.gz
+    provides:
+      DateTime::Util::Calc 0.13003
+    requirements:
+      DateTime 0
+      ExtUtils::MakeMaker 6.59
+      Math::BigFloat 0
+      Math::BigInt 0
+      Math::BigInt::FastCalc 0
+      Math::Trig 0
+      Test::More 0
+      perl 5.006001
+  Devel-CheckCompiler-0.07
+    pathname: S/SY/SYOHEX/Devel-CheckCompiler-0.07.tar.gz
+    provides:
+      Devel::AssertC99 undef
+      Devel::CheckCompiler 0.07
+    requirements:
+      Exporter 0
+      ExtUtils::CBuilder 0
+      File::Temp 0
+      Module::Build::Tiny 0.035
+      Test::More 0.98
+      parent 0
+      perl 5.008001
   Devel-StackTrace-2.05
     pathname: D/DR/DROLSKY/Devel-StackTrace-2.05.tar.gz
     provides:
@@ -607,6 +838,18 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  ExtUtils-Config-0.010
+    pathname: L/LE/LEONT/ExtUtils-Config-0.010.tar.gz
+    provides:
+      ExtUtils::Config 0.010
+      ExtUtils::Config::MakeMaker 0.010
+    requirements:
+      Data::Dumper 0
+      ExtUtils::MakeMaker 0
+      ExtUtils::MakeMaker::Config 0
+      perl 5.006
+      strict 0
+      warnings 0
   ExtUtils-Depends-0.8002
     pathname: E/ET/ETJ/ExtUtils-Depends-0.8002.tar.gz
     provides:
@@ -617,52 +860,35 @@ DISTRIBUTIONS
       File::Spec 0
       IO::File 0
       perl 5.006
-  ExtUtils-MakeMaker-7.74
-    pathname: B/BI/BINGOS/ExtUtils-MakeMaker-7.74.tar.gz
+  ExtUtils-Helpers-0.028
+    pathname: L/LE/LEONT/ExtUtils-Helpers-0.028.tar.gz
     provides:
-      ExtUtils::Command 7.74
-      ExtUtils::Command::MM 7.74
-      ExtUtils::Liblist 7.74
-      ExtUtils::Liblist::Kid 7.74
-      ExtUtils::MM 7.74
-      ExtUtils::MM_AIX 7.74
-      ExtUtils::MM_Any 7.74
-      ExtUtils::MM_BeOS 7.74
-      ExtUtils::MM_Cygwin 7.74
-      ExtUtils::MM_DOS 7.74
-      ExtUtils::MM_Darwin 7.74
-      ExtUtils::MM_MacOS 7.74
-      ExtUtils::MM_NW5 7.74
-      ExtUtils::MM_OS2 7.74
-      ExtUtils::MM_OS390 7.74
-      ExtUtils::MM_QNX 7.74
-      ExtUtils::MM_UWIN 7.74
-      ExtUtils::MM_Unix 7.74
-      ExtUtils::MM_VMS 7.74
-      ExtUtils::MM_VOS 7.74
-      ExtUtils::MM_Win32 7.74
-      ExtUtils::MM_Win95 7.74
-      ExtUtils::MY 7.74
-      ExtUtils::MakeMaker 7.74
-      ExtUtils::MakeMaker::Config 7.74
-      ExtUtils::MakeMaker::Locale 7.74
-      ExtUtils::MakeMaker::_version 7.74
-      ExtUtils::MakeMaker::charstar 7.74
-      ExtUtils::MakeMaker::version 7.74
-      ExtUtils::MakeMaker::version::regex 7.74
-      ExtUtils::MakeMaker::version::vpp 7.74
-      ExtUtils::Mkbootstrap 7.74
-      ExtUtils::Mksymlists 7.74
-      ExtUtils::testlib 7.74
-      MM 7.74
-      MY 7.74
+      ExtUtils::Helpers 0.028
+      ExtUtils::Helpers::Unix 0.028
+      ExtUtils::Helpers::VMS 0.028
+      ExtUtils::Helpers::Windows 0.028
     requirements:
-      Data::Dumper 0
-      Encode 0
+      Carp 0
+      Exporter 5.57
+      ExtUtils::MakeMaker 0
       File::Basename 0
-      File::Spec 0.8
-      Pod::Man 0
-      perl 5.006
+      File::Copy 0
+      File::Spec::Functions 0
+      Text::ParseWords 3.24
+      strict 0
+      warnings 0
+  ExtUtils-InstallPaths-0.014
+    pathname: L/LE/LEONT/ExtUtils-InstallPaths-0.014.tar.gz
+    provides:
+      ExtUtils::InstallPaths 0.014
+    requirements:
+      Carp 0
+      ExtUtils::Config 0.009
+      ExtUtils::MakeMaker 0
+      File::Spec 0
+      perl 5.008
+      strict 0
+      warnings 0
   File-ShareDir-1.118
     pathname: R/RE/REHSACK/File-ShareDir-1.118.tar.gz
     provides:
@@ -733,15 +959,6 @@ DISTRIBUTIONS
       Scalar::Util 1.00
       Test::More 0.99
       XSLoader 0
-  Imager-Font-FT2-1.003
-    pathname: T/TO/TONYC/Imager-Font-FT2-1.003.tar.gz
-    provides:
-      Imager::Font::FT2 1.003
-    requirements:
-      ExtUtils::MakeMaker 0
-      Imager 0.95
-      Scalar::Util 1
-      XSLoader 0
   Imager-Graph-0.12
     pathname: T/TO/TONYC/Imager-Graph-0.12.tar.gz
     provides:
@@ -767,6 +984,19 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.006
+  Math-Round-0.08
+    pathname: N/NE/NEILB/Math-Round-0.08.tar.gz
+    provides:
+      Math::Round 0.08
+    requirements:
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      POSIX 0
+      parent 0
+      perl 5.006
+      strict 0
+      vars 0
+      warnings 0
   Module-Build-0.4234
     pathname: L/LE/LEONT/Module-Build-0.4234.tar.gz
     provides:
@@ -812,6 +1042,46 @@ DISTRIBUTIONS
       Text::ParseWords 0
       perl 5.006001
       version 0.87
+  Module-Build-Tiny-0.052
+    pathname: L/LE/LEONT/Module-Build-Tiny-0.052.tar.gz
+    provides:
+      Module::Build::Tiny 0.052
+    requirements:
+      CPAN::Meta 0
+      DynaLoader 0
+      Exporter 5.57
+      ExtUtils::CBuilder 0
+      ExtUtils::Config 0.003
+      ExtUtils::Helpers 0.020
+      ExtUtils::Install 0
+      ExtUtils::InstallPaths 0.002
+      ExtUtils::ParseXS 0
+      File::Basename 0
+      File::Find 0
+      File::Path 0
+      File::Spec::Functions 0
+      Getopt::Long 2.36
+      JSON::PP 2
+      Pod::Man 0
+      TAP::Harness::Env 0
+      perl 5.006
+      strict 0
+      warnings 0
+  Module-Build-XSUtil-0.19
+    pathname: H/HI/HIDEAKIO/Module-Build-XSUtil-0.19.tar.gz
+    provides:
+      Module::Build::XSUtil 0.19
+    requirements:
+      Devel::CheckCompiler 0
+      Devel::PPPort 0
+      Exporter 0
+      ExtUtils::CBuilder 0
+      File::Basename 0
+      File::Path 0
+      Module::Build 0.4005
+      XSLoader 0
+      parent 0
+      perl 5.008001
   Module-Implementation-0.09
     pathname: D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
     provides:
@@ -1039,6 +1309,25 @@ DISTRIBUTIONS
       Scalar::Util 1.18
       XSLoader 0.22
       parent 0
+  Params-Validate-1.31
+    pathname: D/DR/DROLSKY/Params-Validate-1.31.tar.gz
+    provides:
+      Params::Validate 1.31
+      Params::Validate::Constants 1.31
+      Params::Validate::PP 1.31
+      Params::Validate::XS 1.31
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::CBuilder 0
+      Module::Build 0.4227
+      Module::Implementation 0
+      Scalar::Util 1.10
+      XSLoader 0
+      perl 5.008001
+      strict 0
+      vars 0
+      warnings 0
   Params-ValidationCompiler-0.31
     pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz
     provides:
@@ -1122,7 +1411,7 @@ DISTRIBUTIONS
     requirements:
       Config 0
       ExtUtils::MakeMaker 0
-      perl 5.01
+      perl 5.010
       strict 0
       vars 0
       warnings 0
@@ -1134,6 +1423,16 @@ DISTRIBUTIONS
     requirements:
       Exporter 5.57
       perl 5.006
+  Set-Infinite-0.65
+    pathname: F/FG/FGLOCK/Set-Infinite-0.65.tar.gz
+    provides:
+      Set::Infinite 0.65
+      Set::Infinite::Arithmetic undef
+      Set::Infinite::Basic undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0
+      Time::Local 0
   Specio-0.50
     pathname: D/DR/DROLSKY/Specio-0.50.tar.gz
     provides:
@@ -1219,6 +1518,33 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Scalar::Util 0
       perl 5.006
+  Sub-Uplevel-0.2800
+    pathname: D/DA/DAGOLDEN/Sub-Uplevel-0.2800.tar.gz
+    provides:
+      Sub::Uplevel 0.2800
+    requirements:
+      Carp 0
+      ExtUtils::MakeMaker 6.17
+      constant 0
+      perl 5.006
+      strict 0
+      warnings 0
+  Test-Exception-0.43
+    pathname: E/EX/EXODIST/Test-Exception-0.43.tar.gz
+    provides:
+      Test::Exception 0.43
+    requirements:
+      Carp 0
+      Exporter 0
+      ExtUtils::MakeMaker 0
+      Sub::Uplevel 0.18
+      Test::Builder 0.7
+      Test::Builder::Tester 1.07
+      Test::Harness 2.03
+      base 0
+      perl 5.006001
+      strict 0
+      warnings 0
   Test-Fatal-0.017
     pathname: R/RJ/RJBS/Test-Fatal-0.017.tar.gz
     provides:
@@ -1269,6 +1595,34 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.008
+  YAML-1.31
+    pathname: I/IN/INGY/YAML-1.31.tar.gz
+    provides:
+      YAML 1.31
+      YAML::Any 1.31
+      YAML::Dumper undef
+      YAML::Dumper::Base undef
+      YAML::Error undef
+      YAML::Loader undef
+      YAML::Loader::Base undef
+      YAML::Marshall undef
+      YAML::Mo undef
+      YAML::Node undef
+      YAML::Tag undef
+      YAML::Type::blessed undef
+      YAML::Type::code undef
+      YAML::Type::glob undef
+      YAML::Type::ref undef
+      YAML::Type::regexp undef
+      YAML::Type::undef undef
+      YAML::Types undef
+      YAML::Warning undef
+      yaml_mapping undef
+      yaml_scalar undef
+      yaml_sequence undef
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.008001
   bareword-filehandles-0.007
     pathname: I/IL/ILMARI/bareword-filehandles-0.007.tar.gz
     provides:
