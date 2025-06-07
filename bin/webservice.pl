@@ -174,7 +174,7 @@ sub text_to_image ($message) {
 
     say STDERR "img: $img";
     my $now = DateTime->now(time_zone => 'Europe/London');
-    $img->string(x => 0,
+    $img->string(x => 3,
                  y => 0,
                  align => 0,
                  font => $font_clock,
@@ -184,7 +184,7 @@ sub text_to_image ($message) {
     Imager::Font::Wrap->wrap_text(
         image   => $img,
         font    => $font,
-        x       => 15,
+        x       => 3,
         y       => 18,
         
         string  => $message,
