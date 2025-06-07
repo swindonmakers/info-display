@@ -15,3 +15,7 @@ requires 'Imager::Graph::Column';
 requires 'Chart::Math::Axis';
 requires 'DateTime';
 requires 'Config::General';
+requires 'DateTime::Format::Baby';
+requires 'DateTime::Format::Human';
+requires 'DateTime::Format::GeekTime';
+requires 'DateTime::Calendar::Discordian';
