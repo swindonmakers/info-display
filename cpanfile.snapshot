@@ -959,6 +959,23 @@ DISTRIBUTIONS
       Scalar::Util 1.00
       Test::More 0.99
       XSLoader 0
+  Imager-File-JPEG-1.001
+    pathname: T/TO/TONYC/Imager-File-JPEG-1.001.tar.gz
+    provides:
+      Imager::File::JPEG 1.001
+    requirements:
+      ExtUtils::MakeMaker 0
+      Imager 1.008
+      XSLoader 0
+  Imager-Font-FT2-1.003
+    pathname: T/TO/TONYC/Imager-Font-FT2-1.003.tar.gz
+    provides:
+      Imager::Font::FT2 1.003
+    requirements:
+      ExtUtils::MakeMaker 0
+      Imager 0.95
+      Scalar::Util 1
+      XSLoader 0
   Imager-Graph-0.12
     pathname: T/TO/TONYC/Imager-Graph-0.12.tar.gz
     provides:

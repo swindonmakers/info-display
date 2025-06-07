@@ -2,6 +2,7 @@ requires 'Mojolicious::Lite';
 requires 'Imager';
 requires 'Imager::Font';
 requires 'Imager::Font::FT2';
+requires 'Imager::File::JPEG';
 requires 'Path::Class';
 requires 'Regexp::Common';
 requires 'Module::Pluggable';

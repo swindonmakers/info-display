@@ -29,10 +29,21 @@ use Regexp::Common 'profanity';
 use Data::Dumper;
 use DateTime;
 use DateTime::Format::Strptime;
-
-use lib 'lib';
-use MS::InfoDisplay;
 use Data::Printer output => 'stderr';
+
+use lib "$ENV{INFODISPLAY_HOME}/lib";
+use MS::InfoDisplay;
+
+if(!$ENV{INFODISPLAY_HOME} || !-e $ENV{INFODISPLAY_HOME}) {
+    die "Please set INFODISPLAY_HOME environment variable\n";
+}
+
+my $screensize = { x => 3*64, y => 3*32 };
+my $fontsize = 16;
+my $image_format = 'png';
+my $datetime_formatter = DateTime::Format::Strptime->new(
+    pattern => '%A %e %B %H:%M'
+);
 
 =head2 Web endpoint /message
 
@@ -43,13 +54,6 @@ code (a code reference) that is called when something fetches
 L<http://whereever/message>.
 
 =cut
-
-my $screensize = { x => 3*64, y => 3*32 };
-my $fontsize = 16;
-my $image_format = 'png';
-my $datetime_formatter = DateTime::Format::Strptime->new(
-    pattern => '%A %e %B %H:%M'
-);
 
 get '/message' => sub ($c) {
     # Look for all plugins:
@@ -99,8 +103,7 @@ get '/message' => sub ($c) {
 
         p $plugin_info;
 
-        $message = $plugin_info->{plugin}->run($the_random);
-    }
+        $message = $plugin_info->{plugin}->run($the_random, $screensize);
 
     # If its not an Image, assume its text and create an Image:
     if(ref $message ne 'Imager') {
@@ -142,7 +145,7 @@ app->start('daemon', '-l', 'http://*:5001');
 
 sub text_to_image ($message) {
 #    my $fontfile = '/usr/src/extern/hackspace/TitilliumWeb-Light.ttf';
-    my $fontfile = '/usr/src/extern/hackspace/Lekton-Regular.ttf';
+    my $fontfile = "$ENV{INFODISPLAY_HOME}/fonts/Lekton-Regular.ttf";
 
     if(!-e $fontfile) {
         say "No such font: $fontfile";
