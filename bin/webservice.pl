@@ -115,23 +115,22 @@ get '/message' => sub ($c) {
         # Check image size / scale ?
     }
 
-    # Find the "absolute brightness".
-    my $brightness = 0;
-    {
-        my $b_and_w =  $message->convert(preset => 'grey');
-        for my $y (0..$b_and_w->getheight-1) {
-            my (@values) = $b_and_w->getsamples(y=>$y, channels=>[0]);
-            $brightness += $_ for @values;
-        }
-    }
+    my $brightness = get_brightness($message);
     say "Image brightness: $brightness";
 
-    my $desired_brightness = 120000;
+    my $desired_brightness = 240_000;
     my $contrast = $desired_brightness/$brightness;
+
+    #if ($contrast < 1/4) {
+    #    $contrast = 1/4;
+    #}
 
     say "Contrast: $contrast";
     $message->filter(type => 'contrast', intensity => $contrast) or die "Cannot contrast: ".$message->errstr;
-    
+
+    my $post_brightness = get_brightness($message);
+    say "Post brightness: $post_brightness";
+
     # Write out image to display:
     my $file_data;
     if(!$message) {
@@ -145,6 +144,26 @@ get '/message' => sub ($c) {
 };
 
 app->start('daemon', '-l', 'http://*:5001');
+
+sub get_brightness {
+    my ($image) = @_;
+
+    say "When computing brightness:";
+    say " - getwidth: ", $image->getwidth;
+    say " - getheight: ", $image->getheight;
+
+    # Find the "absolute brightness".
+    my $brightness = 0;
+    my $b_and_w =  $image->convert(preset => 'grey');
+    for my $y (0..$b_and_w->getheight-1) {
+        my (@values) = $b_and_w->getsamples(y=>$y, channels=>[0]);
+        $brightness += $_ for @values;
+    }
+
+    return $brightness;
+}
+
+
 
 sub text_to_image ($message) {
 #    my $fontfile = '/usr/src/extern/hackspace/TitilliumWeb-Light.ttf';

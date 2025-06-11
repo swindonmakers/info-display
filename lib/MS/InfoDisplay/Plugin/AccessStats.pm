@@ -32,8 +32,8 @@ sub run {
     my $data = $schema->resultset('Person')->membership_stats();
 
     my $font = Imager::Font->new(
-        file => '/usr/src/extern/hackspace/Lekton-Regular.ttf',
-        size => 6,
+        file => "$ENV{INFODISPLAY_HOME}/fonts/Lekton-Regular.ttf",
+        size => 4,
     );
     my $graph = Imager::Graph::Column->new();
     $graph->set_image_width(192);
