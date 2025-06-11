@@ -62,10 +62,13 @@ get '/message' => sub ($c) {
 
     die "No plugins" if !@plugins;
 
+    my ($plugin, $the_random);
     my $message;
+
     if($c->param('plugin')) {
-        my $p = $c->param('plugin');
-        $message = $p->run($c->param('num') || 0); #params?
+        $plugin = $c->param('plugin');
+        $the_random = $c->param('num');
+
     } else {
 
         # Collect all possible messages
@@ -87,7 +90,7 @@ get '/message' => sub ($c) {
 
         say STDERR "max_random: $max_random";
 
-        my $the_random = int rand $max_random;
+        $the_random = int rand $max_random;
 
         say STDERR "the_random: $the_random";
 
@@ -100,10 +103,10 @@ get '/message' => sub ($c) {
             }
             $the_random -= $plugin_info->{count};
         }
+        $plugin = $plugin_info->{plugin};
+    }
 
-        p $plugin_info;
-
-        $message = $plugin_info->{plugin}->run($the_random, $screensize);
+    $message = $plugin->run($the_random, $screensize);
 
     # If its not an Image, assume its text and create an Image:
     if(ref $message ne 'Imager') {
