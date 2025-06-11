@@ -13,7 +13,8 @@ use DateTime::Calendar::Discordian;
 my @simple_formats = (
     'DateTime::Format::Baby',
     'DateTime::Format::Human',
-    'DateTime::Format::GeekTime',
+    # Just not very fun
+    # 'DateTime::Format::GeekTime',
     # Broken?
     # 'DateTime::Format::TauStation'
     # 'DateTime::Format::Japanese'
@@ -28,7 +29,7 @@ sub messages_count {
     return @simple_formats + 1;
 }
 
-sub run ($self, $n) {
+sub run ($self, $n, $screensize) {
     my $now = DateTime->now;
 
     if ($n < @simple_formats) {

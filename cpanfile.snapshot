@@ -107,6 +107,19 @@ DISTRIBUTIONS
       File::Spec::Functions 0
       FileHandle 0
       IO::File 0
+  Daemon-Control-0.001010
+    pathname: S/SY/SYMKAT/Daemon-Control-0.001010.tar.gz
+    provides:
+      Daemon::Control 0.001010
+    requirements:
+      Cwd 0
+      ExtUtils::MakeMaker 6.59
+      File::Path 2.08
+      File::Spec 0
+      File::Temp 0.14
+      POSIX 0
+      Test::More 0.88
+      perl 5.008001
   Data-Printer-1.002001
     pathname: G/GA/GARU/Data-Printer-1.002001.tar.gz
     provides:
@@ -958,23 +971,6 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Scalar::Util 1.00
       Test::More 0.99
-      XSLoader 0
-  Imager-File-JPEG-1.001
-    pathname: T/TO/TONYC/Imager-File-JPEG-1.001.tar.gz
-    provides:
-      Imager::File::JPEG 1.001
-    requirements:
-      ExtUtils::MakeMaker 0
-      Imager 1.008
-      XSLoader 0
-  Imager-Font-FT2-1.003
-    pathname: T/TO/TONYC/Imager-Font-FT2-1.003.tar.gz
-    provides:
-      Imager::Font::FT2 1.003
-    requirements:
-      ExtUtils::MakeMaker 0
-      Imager 0.95
-      Scalar::Util 1
       XSLoader 0
   Imager-Graph-0.12
     pathname: T/TO/TONYC/Imager-Graph-0.12.tar.gz
