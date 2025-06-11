@@ -44,40 +44,39 @@ sub run {
     $graph->show_graph_outline(0);
     # $graph->show_area_markers();
     # $graph->use_automatic_axis();
+
+    $graph->set_text_font_size(11);
     
     # $graph->show_legend();
 
     # full/tier pairs, conc/tier pairs
     my @data = (
-        $data->{full}{valid_members}{MemberOfOtherHackspace},
-        $data->{full}{valid_members}{MensShed},
+        ($data->{full}{valid_members}{MemberOfOtherHackspace}||0) +
+        ($data->{full}{valid_members}{MensShed}||0),
         $data->{full}{valid_members}{Weekend},
         $data->{full}{valid_members}{Standard},
         $data->{full}{valid_members}{Sponsor},
-        $data->{concession}{valid_members}{MemberOfOtherHackspace},
-        $data->{concession}{valid_members}{MensShed},
+        ($data->{concession}{valid_members}{MemberOfOtherHackspace}||0) +
+        ($data->{concession}{valid_members}{MensShed}||0),
         $data->{concession}{valid_members}{Weekend},
         $data->{concession}{valid_members}{Standard},
         $data->{concession}{valid_members}{Sponsor},
     );
     my @labels = qw(
-        FMO
-        FSH
-        FWE
-        FST
-        FSP
-        CMO
-        CSH
-        CWE
-        CST
-        CSP
+        FO
+        FW
+        FN
+        FS
+        CO
+        CW
+        CN
+        CS
     );
 
     $graph->add_data_series(\@data, 'Mbrs');
     $graph->set_labels(\@labels);
 
     my $img = $graph->draw(
-        fount_lin=> 0,
         style => 'mono',
         bg => 'black',
         fg => 'white'
